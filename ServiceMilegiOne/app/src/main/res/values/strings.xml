@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ServiceMilegiOne</string>
+    <string name="title_activity_bottom__nav">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_bookings">Bookings</string>
+    <string name="title_account">Account</string>
 </resources>

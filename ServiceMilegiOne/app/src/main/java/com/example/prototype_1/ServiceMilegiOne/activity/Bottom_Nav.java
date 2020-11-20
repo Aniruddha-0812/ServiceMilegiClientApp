@@ -12,7 +12,7 @@ import com.example.prototype_1.ServiceMilegiOne.R;
 import com.example.prototype_1.ServiceMilegiOne.utils.ViewPager_Adapeter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class Bottom_Nav extends AppCompatActivity {
 
     private BottomNavigationView mNavView;
 

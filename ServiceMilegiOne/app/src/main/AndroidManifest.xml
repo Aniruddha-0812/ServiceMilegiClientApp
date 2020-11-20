@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ServiceMilegiOne">
+        <activity android:name=".activity.CarpenterActivity"/>
+        <activity android:name=".activity.PainterActivity"/>
+        <activity android:name=".activity.PlumberActivity" />
+        <activity android:name=".activity.ElectricianActivity" />
         <activity android:name=".activity.Register"/>
         <activity android:name=".activity.Verify" />
         <activity android:name=".activity.Splash"
