@@ -21,7 +21,6 @@ import com.example.prototype_1.ServiceMilegiOne.utils.*;
 public class Register extends AppCompatActivity {
 
     private EditText first, last, mobile, email;
-
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private String Userid;
