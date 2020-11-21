@@ -2,6 +2,7 @@ package com.example.prototype_1.ServiceMilegiOne.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -15,6 +16,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -31,7 +33,10 @@ public class PainterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_painter);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -48,56 +53,24 @@ public class PainterActivity extends AppCompatActivity {
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Book_Now();
-
+                Intent intent1 = new Intent(PainterActivity.this , Book_Order.class);
+                intent1.putExtra("job" , booking);
+                startActivity(intent1);
+                finish();
             }
         });
     }
 
-    private void Book_Now() {
 
-        db.collection("Users").document(user_id).get()
-                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        String email = documentSnapshot.getString("email");
-                        String first_name = documentSnapshot.getString("first_name");
-                        String last_name = documentSnapshot.getString("last_name");
-                        String mob_no = documentSnapshot.getString("mob_no");
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
 
-                        Map<String, String> job = new HashMap<>();
-                        job.put("email", email);
-                        job.put("first_name", first_name);
-                        job.put("last_name", last_name);
-                        job.put("mob_no", mob_no);
-                        job.put("job", booking);
-
-                        db.collection("Orders").document(user_id).set(job)
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-
-                                        if(task.isSuccessful()){
-                                            Toast.makeText(getApplicationContext() , "Order Placed Successfully" ,Toast.LENGTH_LONG).show();
-
-                                        }
-                                        else{
-                                            Toast.makeText(getApplicationContext() , "Failed To Place Order" ,Toast.LENGTH_LONG).show();
-
-                                        }
-
-                                        startActivity(new Intent(PainterActivity.this , MainActivity.class));
-
-                                    }
-                                });
-
-
-
-                    }
-
-                });
-
-
+        return super.onOptionsItemSelected(item);
     }
 
 }

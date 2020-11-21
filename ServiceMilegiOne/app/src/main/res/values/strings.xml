@@ -4,4 +4,11 @@
     <string name="title_home">Home</string>
     <string name="title_bookings">Bookings</string>
     <string name="title_account">Account</string>
+    <string name="db">Dashboard</string>
+    <string name="about">About Us</string>
+    <string name="partner">Be a Partner</string>
+    <string name="edit">Check Details</string>
+    <string name="signout">Sign Out</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>

@@ -1,7 +1,7 @@
 package com.example.prototype_1.ServiceMilegiOne.utils;
 
 public class User {
-    private String first_name ,last_name , mob_no,email;
+    private String first_name ,last_name , mob_no,email, address;
 
     public User (){
 
@@ -13,6 +13,7 @@ public class User {
         this.last_name = lname;
         this.email = email;
         this.mob_no = mob;
+        this.address = null;
     }
 
     public String getEmail() {

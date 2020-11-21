@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.example.prototype_1.ServiceMilegiOne.activity.AccountFragment;
 import com.example.prototype_1.ServiceMilegiOne.activity.BookingsFragment;
 import com.example.prototype_1.ServiceMilegiOne.activity.HomeFragment;
 
@@ -26,8 +25,6 @@ public class ViewPager_Adapeter extends FragmentStatePagerAdapter {
             case 1:
                 return  new BookingsFragment();
 
-            case 2:
-                return  new AccountFragment();
 
         }
 
@@ -38,6 +35,6 @@ public class ViewPager_Adapeter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 }

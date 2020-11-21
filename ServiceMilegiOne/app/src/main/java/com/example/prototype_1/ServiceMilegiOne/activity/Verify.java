@@ -50,6 +50,7 @@ public class Verify extends AppCompatActivity {
         otp = findViewById(R.id.otp);
         verify = findViewById(R.id.verify);
         progressBar = findViewById(R.id.progress_bar);
+        progressBar.setVisibility(View.VISIBLE);
         mobile_number = getIntent().getStringExtra("Mobile");
 
 
@@ -67,12 +68,13 @@ public class Verify extends AppCompatActivity {
             public void onVerificationFailed(@NonNull FirebaseException e) {
 
                 Toast.makeText(getApplicationContext(), "Verification failed try again", Toast.LENGTH_LONG).show();
-
+                e.printStackTrace();
             }
 
             @Override
             public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
 
+                progressBar.setVisibility(View.INVISIBLE);
                 otp_id = s;
             }
         };
@@ -84,15 +86,14 @@ public class Verify extends AppCompatActivity {
         verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                verify.setEnabled(false);
                 String code = otp.getText().toString();
                 if (code.isEmpty() || code.length() < 6) {
                     otp.setError("Invalid OTP");
                     otp.requestFocus();
                     return;
                 }
-
-                progressBar.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
                 verify_code(code);
 
 
@@ -158,7 +159,7 @@ public class Verify extends AppCompatActivity {
         userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-
+                progressBar.setVisibility(View.INVISIBLE);
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
 

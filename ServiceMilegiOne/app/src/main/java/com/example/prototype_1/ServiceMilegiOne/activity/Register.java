@@ -21,7 +21,6 @@ import com.example.prototype_1.ServiceMilegiOne.utils.*;
 public class Register extends AppCompatActivity {
 
     private EditText first, last, mobile, email;
-
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private String Userid;
@@ -76,13 +75,9 @@ public class Register extends AppCompatActivity {
             return;
         }
 
-        if (Email.isEmpty()) {
-            email.setError("Email is required");
-            email.requestFocus();
-            return;
-        }
 
-        if (!Patterns.EMAIL_ADDRESS.matcher(Email).matches()) {
+
+        if ( !Email.isEmpty() && !Patterns.EMAIL_ADDRESS.matcher(Email).matches()) {
             email.setError("Invalid Email");
             email.requestFocus();
 
