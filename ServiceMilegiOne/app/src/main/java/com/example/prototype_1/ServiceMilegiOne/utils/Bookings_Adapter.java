@@ -17,7 +17,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 public class Bookings_Adapter extends FirestoreRecyclerAdapter<Orders, Bookings_Adapter.Holder> {
 
    private  onItem_clickListener listener;
-
+    private Boolean Cancel;
 
     public Bookings_Adapter(@NonNull FirestoreRecyclerOptions<Orders> options) {
         super(options);
@@ -27,6 +27,13 @@ public class Bookings_Adapter extends FirestoreRecyclerAdapter<Orders, Bookings_
     protected void onBindViewHolder(@NonNull Holder holder, int position, @NonNull Orders model) {
         holder.job.setText(model.getJob());
         holder.status.setText(model.isStatus() + " ");
+        Cancel =  model.isCancel();
+
+        if(Cancel)
+        {
+            holder.cancel.setEnabled(false);
+        }
+
     }
     @NonNull
     @Override
@@ -38,12 +45,12 @@ public class Bookings_Adapter extends FirestoreRecyclerAdapter<Orders, Bookings_
 
         TextView job, status;
         Button cancel;
+
         public Holder(@NonNull View itemView) {
             super(itemView);
             job = itemView.findViewById(R.id.order_name);
             status = itemView.findViewById(R.id.status);
             cancel = itemView.findViewById(R.id.on_cancel);
-
 
             cancel.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -53,9 +60,10 @@ public class Bookings_Adapter extends FirestoreRecyclerAdapter<Orders, Bookings_
                     if(position != RecyclerView.NO_POSITION && listener != null)
                     {
                         listener.onItemClick(getSnapshots().getSnapshot(position) , position);
+
                     }
 
-                    cancel.setEnabled(false);
+
                 }
             });
         }

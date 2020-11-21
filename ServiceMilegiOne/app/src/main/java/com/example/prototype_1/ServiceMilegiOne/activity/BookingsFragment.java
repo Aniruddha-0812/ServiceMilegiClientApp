@@ -45,6 +45,7 @@ public class BookingsFragment extends Fragment  {
     private String User_id;
     private  String final_job;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -81,6 +82,7 @@ public class BookingsFragment extends Fragment  {
             public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
                 Orders orders = documentSnapshot.toObject(Orders.class);
                 final_job = orders.getJob();
+
                 String doc_id = documentSnapshot.getId();
                 cancel_order(doc_id);
             }
