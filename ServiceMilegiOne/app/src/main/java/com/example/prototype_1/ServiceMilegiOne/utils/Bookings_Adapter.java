@@ -16,7 +16,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 
 public class Bookings_Adapter extends FirestoreRecyclerAdapter<Orders, Bookings_Adapter.Holder> {
 
-   private  onItem_clickListener listener;
+    private  onItem_clickListener listener;
     private Boolean Cancel;
 
     public Bookings_Adapter(@NonNull FirestoreRecyclerOptions<Orders> options) {
@@ -55,6 +55,7 @@ public class Bookings_Adapter extends FirestoreRecyclerAdapter<Orders, Bookings_
             cancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
 
                     int position = getAdapterPosition();
                     if(position != RecyclerView.NO_POSITION && listener != null)

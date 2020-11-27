@@ -77,7 +77,7 @@ public class Book_Order extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 UpdaterUser();
-                Book_Now();
+//                Book_Now();
             }
         });
 
@@ -137,14 +137,20 @@ public class Book_Order extends AppCompatActivity {
             @Override
             public void onSuccess(Void aVoid) {
                 Log.d("Edit","updated");
+                Book_Now();
 
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Log.d("Edit","Not updated");
+                Toast.makeText(Book_Order.this ,"Booking Failed" , Toast.LENGTH_LONG).show();
+                startActivity(new Intent(Book_Order.this , MainActivity.class));
+                finish();
             }
         });
+
+
     }
 
     private void Book_Now() {
