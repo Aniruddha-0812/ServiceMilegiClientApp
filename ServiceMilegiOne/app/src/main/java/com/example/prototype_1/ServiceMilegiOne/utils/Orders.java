@@ -1,18 +1,22 @@
 package com.example.prototype_1.ServiceMilegiOne.utils;
 
+import com.google.firebase.Timestamp;
+
 public  class Orders {
 
     private String job;
-    private  boolean cancel , status;
+    private Timestamp messageTime;
+    private  boolean cancel , isComplete;
    public Orders(){
 
     }
 
-    public  Orders(String job , boolean cancel , boolean status){
+    public  Orders(String job , Timestamp messageTime, boolean cancel , boolean isComplete){
 
         this.job = job;
         this.cancel = cancel;
-        this.status = status;
+        this.isComplete = isComplete;
+        this.messageTime = messageTime;
     }
 
     public String getJob() {
@@ -31,11 +35,19 @@ public  class Orders {
         this.cancel = cancel;
     }
 
-    public boolean isStatus() {
-        return status;
+    public Timestamp getMessageTime() {
+        return messageTime;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setMessageTime(Timestamp messageTime) {
+        this.messageTime = messageTime;
+    }
+
+    public boolean isComplete() {
+        return isComplete;
+    }
+
+    public void setComplete(boolean complete) {
+        isComplete = complete;
     }
 }

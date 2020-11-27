@@ -86,7 +86,6 @@ public class Verify extends AppCompatActivity {
         verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                verify.setEnabled(false);
                 String code = otp.getText().toString();
                 if (code.isEmpty() || code.length() < 6) {
                     otp.setError("Invalid OTP");
@@ -95,8 +94,6 @@ public class Verify extends AppCompatActivity {
                 }
                 progressBar.setVisibility(View.INVISIBLE);
                 verify_code(code);
-
-
             }
         });
 
@@ -104,6 +101,7 @@ public class Verify extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     }
+
 
     private void validate_otp(PhoneAuthProvider.OnVerificationStateChangedCallbacks Callbacks) {
 

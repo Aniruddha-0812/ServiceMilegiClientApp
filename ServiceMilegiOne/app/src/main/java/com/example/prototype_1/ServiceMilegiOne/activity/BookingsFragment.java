@@ -76,43 +76,6 @@ public class BookingsFragment extends Fragment  {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
-
-
-        adapter.setOnItemClickListener(new Bookings_Adapter.onItem_clickListener() {
-            @Override
-            public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
-                Orders orders = documentSnapshot.toObject(Orders.class);
-                final_job = orders.getJob();
-
-                String doc_id = documentSnapshot.getId();
-                cancel_order(doc_id);
-            }
-        });
-
-    }
-
-
-    private void cancel_order(String doc_id) {
-
-        Map<String, Object> map = new HashMap<>();
-        map.put("cancel", true);
-        map.put("job" ,final_job);
-        map.put("is_complete" ,false);
-
-        documentReference = db.collection("Users").document(User_id).collection("Orders").document(doc_id);
-
-
-        documentReference.update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Toast.makeText(getContext(), "Successfully Updated", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d("Edit","Not updated");
-            }
-        });
     }
 
     @Override

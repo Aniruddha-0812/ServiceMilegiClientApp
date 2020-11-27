@@ -1,5 +1,7 @@
 package com.example.prototype_1.ServiceMilegiOne.utils;
 
+import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +17,11 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.DocumentSnapshot;
 
+import java.util.Calendar;
+import java.util.Locale;
+
 public class Bookings_Adapter extends FirestoreRecyclerAdapter<Orders, Bookings_Adapter.Holder> {
 
-    private onItem_clickListener listener;
 
     public Bookings_Adapter(@NonNull FirestoreRecyclerOptions<Orders> options) {
         super(options);
@@ -26,7 +30,9 @@ public class Bookings_Adapter extends FirestoreRecyclerAdapter<Orders, Bookings_
     @Override
     protected void onBindViewHolder(@NonNull Holder holder, int position, @NonNull Orders model) {
         holder.job.setText(model.getJob());
-        holder.status.setText(model.isStatus() + "");
+        holder.status.setText(model.isComplete() + "");
+        //String date = DateFormat.format("dd-MM-yyyy", cal).toString();
+        holder.date.setText(model.getMessageTime().toDate().toString());
     }
     @NonNull
     @Override
@@ -36,7 +42,7 @@ public class Bookings_Adapter extends FirestoreRecyclerAdapter<Orders, Bookings_
     }
     class Holder extends RecyclerView.ViewHolder{
 
-        TextView job, status;
+        TextView job, status, date;
         Button  clear;
 
         public Holder(@NonNull View itemView) {
@@ -45,6 +51,7 @@ public class Bookings_Adapter extends FirestoreRecyclerAdapter<Orders, Bookings_
             job = itemView.findViewById(R.id.order_name);
             status = itemView.findViewById(R.id.status);
             clear = itemView.findViewById(R.id.on_clear);
+            date = itemView.findViewById(R.id.time);
 
             clear.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -65,12 +72,4 @@ public class Bookings_Adapter extends FirestoreRecyclerAdapter<Orders, Bookings_
         }
     }
 
-    public  interface   onItem_clickListener {
-        void onItemClick(DocumentSnapshot documentSnapshot , int position);
-    }
-
-    public  void setOnItemClickListener(onItem_clickListener listener){
-        this.listener = listener;
-
-    }
 }

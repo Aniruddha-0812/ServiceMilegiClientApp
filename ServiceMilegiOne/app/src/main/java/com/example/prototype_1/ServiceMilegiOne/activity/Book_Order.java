@@ -30,6 +30,7 @@ import com.google.firebase.firestore.Query;
 import com.google.type.DateTime;
 
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -160,11 +161,11 @@ public class Book_Order extends AppCompatActivity {
 
     private void Book_Now() {
         Calendar calendar = Calendar.getInstance();
-        Long tsLong = System.currentTimeMillis()/1000;
-        String ts = tsLong.toString();
+//        Long tsLong = System.currentTimeMillis()/1000;
+//        String ts = tsLong.toString();
         Map<String,Object> mp = new HashMap<>();
         mp.put("job" , booking);
-        mp.put("messageTime", ts);
+        mp.put("messageTime", calendar.getTime());
         mp.put("is_complete" , false);
         mp.put("cancel" , false);
 
