@@ -26,7 +26,12 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.type.DateTime;
 
+import java.sql.Time;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -148,10 +153,12 @@ public class Book_Order extends AppCompatActivity {
     }
 
     private void Book_Now() {
-
-
+        Calendar calendar = Calendar.getInstance();
+        Long tsLong = System.currentTimeMillis()/1000;
+        String ts = tsLong.toString();
         Map<String,Object> mp = new HashMap<>();
         mp.put("job" , booking);
+        mp.put("messageTime", ts);
         mp.put("is_complete" , false);
         mp.put("cancel" , false);
 
@@ -172,8 +179,6 @@ public class Book_Order extends AppCompatActivity {
                         finish();
                     }
                 });
-
-
     }
 
     @Override

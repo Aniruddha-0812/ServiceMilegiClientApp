@@ -63,7 +63,8 @@ public class BookingsFragment extends Fragment  {
 
     private void set_up_recycleView(View view) {
 
-        Query query = db.collection("Users").document(User_id).collection("Orders");
+        Query query = db.collection("Users").document(User_id).collection("Orders").orderBy("messageTime", Query.Direction.DESCENDING);
+
 
         FirestoreRecyclerOptions<Orders> options = new FirestoreRecyclerOptions.Builder<Orders>()
                 .setQuery(query, Orders.class)

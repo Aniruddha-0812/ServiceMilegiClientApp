@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,14 +27,7 @@ public class Bookings_Adapter extends FirestoreRecyclerAdapter<Orders, Bookings_
     @Override
     protected void onBindViewHolder(@NonNull Holder holder, int position, @NonNull Orders model) {
         holder.job.setText(model.getJob());
-        holder.status.setText(model.isStatus() + " ");
-        Cancel =  model.isCancel();
-
-        if(Cancel)
-        {
-            holder.cancel.setEnabled(false);
-        }
-
+        holder.status.setText(model.isStatus() + "");
     }
     @NonNull
     @Override
@@ -44,36 +38,34 @@ public class Bookings_Adapter extends FirestoreRecyclerAdapter<Orders, Bookings_
     class Holder extends RecyclerView.ViewHolder{
 
         TextView job, status;
-        Button cancel;
+        Button  clear;
 
         public Holder(@NonNull View itemView) {
             super(itemView);
             job = itemView.findViewById(R.id.order_name);
             status = itemView.findViewById(R.id.status);
-            cancel = itemView.findViewById(R.id.on_cancel);
+            clear = itemView.findViewById(R.id.on_clear);
 
-            cancel.setOnClickListener(new View.OnClickListener() {
+            clear.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    int position = getAdapterPosition();
-                    if(position != RecyclerView.NO_POSITION && listener != null)
-                    {
-                        listener.onItemClick(getSnapshots().getSnapshot(position) , position);
-
+                    if(view.equals(clear)){
+                        removeAt(getAdapterPosition());
+                        Toast.makeText(view.getContext(),"Item removed successfully", Toast.LENGTH_SHORT).show();
                     }
-
-
                 }
             });
+
         }
 
+        public void removeAt(int position) {
+            getSnapshots().getSnapshot(position).getReference().delete();
+        }
 
 
     }
 
-    public  interface   onItem_clickListener
-    {
+    public  interface   onItem_clickListener {
         void onItemClick(DocumentSnapshot documentSnapshot , int position);
     }
 
