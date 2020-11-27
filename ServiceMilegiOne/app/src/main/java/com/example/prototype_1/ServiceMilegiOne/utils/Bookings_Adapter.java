@@ -17,8 +17,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 
 public class Bookings_Adapter extends FirestoreRecyclerAdapter<Orders, Bookings_Adapter.Holder> {
 
-   private  onItem_clickListener listener;
-    private Boolean Cancel;
+    private onItem_clickListener listener;
 
     public Bookings_Adapter(@NonNull FirestoreRecyclerOptions<Orders> options) {
         super(options);
@@ -42,6 +41,7 @@ public class Bookings_Adapter extends FirestoreRecyclerAdapter<Orders, Bookings_
 
         public Holder(@NonNull View itemView) {
             super(itemView);
+
             job = itemView.findViewById(R.id.order_name);
             status = itemView.findViewById(R.id.status);
             clear = itemView.findViewById(R.id.on_clear);
@@ -49,20 +49,20 @@ public class Bookings_Adapter extends FirestoreRecyclerAdapter<Orders, Bookings_
             clear.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(view.equals(clear)){
+
+                    if (view.equals(clear)) {
                         removeAt(getAdapterPosition());
-                        Toast.makeText(view.getContext(),"Item removed successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), "Item removed successfully", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
 
-        }
 
-        public void removeAt(int position) {
+
+        }
+        public void removeAt( int position){
             getSnapshots().getSnapshot(position).getReference().delete();
         }
-
-
     }
 
     public  interface   onItem_clickListener {
