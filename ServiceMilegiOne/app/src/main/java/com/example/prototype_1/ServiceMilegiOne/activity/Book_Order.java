@@ -40,6 +40,7 @@ public class Book_Order extends AppCompatActivity {
 
 
     private EditText first, last, mobile, email , address;
+    private  String first_name , last_name , mob, user_address;
     private FirebaseAuth mAuth;
     private FirebaseUser mFirebaseUser;
     private FirebaseFirestore db;
@@ -71,11 +72,17 @@ public class Book_Order extends AppCompatActivity {
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                first.setText(value.getString("first_name"));
-                last.setText(value.getString("last_name"));
-                mobile.setText(value.getString("mob_no"));
+
+                first_name = value.getString("first_name");
+                last_name = value.getString("last_name");
+                mob = value.getString("mob_no");
+                user_address = value.getString("address");
+
+                first.setText(first_name);
+                last.setText(last_name);
+                mobile.setText(mob);
                 email.setText(value.getString("email"));
-                address.setText(value.getString("address"));
+                address.setText(user_address);
             }
         });
 
@@ -163,11 +170,18 @@ public class Book_Order extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
 //        Long tsLong = System.currentTimeMillis()/1000;
 //        String ts = tsLong.toString();
+        Boolean flag = false;
         Map<String,Object> mp = new HashMap<>();
+        mp.put("is_complete" , flag);
         mp.put("job" , booking);
         mp.put("messageTime", calendar.getTime());
-        mp.put("is_complete" , false);
-        mp.put("cancel" , false);
+        mp.put("first_name" , first_name );
+        mp.put("last_name" , last_name);
+        mp.put("address" , user_address);
+        mp.put("mobile" , mob);
+
+
+//        mp.put("cancel" , false);
 
         db.collection("Users").document(Userid).collection("Orders").add(mp)
                 .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {

@@ -6,16 +6,14 @@ public  class Orders {
 
     private String job;
     private Timestamp messageTime;
-    private  boolean cancel , isComplete;
-   public Orders(){
+    private  boolean  is_complete;
+    public Orders(){
 
     }
 
-    public  Orders(String job , Timestamp messageTime, boolean cancel , boolean isComplete){
-
+    public  Orders(boolean is_complete, String job , Timestamp messageTime ){
         this.job = job;
-        this.cancel = cancel;
-        this.isComplete = isComplete;
+        this.is_complete = is_complete;
         this.messageTime = messageTime;
     }
 
@@ -27,14 +25,6 @@ public  class Orders {
         this.job = job;
     }
 
-    public boolean isCancel() {
-        return cancel;
-    }
-
-    public void setCancel(boolean cancel) {
-        this.cancel = cancel;
-    }
-
     public Timestamp getMessageTime() {
         return messageTime;
     }
@@ -43,11 +33,11 @@ public  class Orders {
         this.messageTime = messageTime;
     }
 
-    public boolean isComplete() {
-        return isComplete;
+    public boolean isIs_complete() {
+        return is_complete;
     }
 
-    public void setComplete(boolean complete) {
-        isComplete = complete;
+    public void setIs_complete(boolean is_complete) {
+        this.is_complete = is_complete;
     }
 }

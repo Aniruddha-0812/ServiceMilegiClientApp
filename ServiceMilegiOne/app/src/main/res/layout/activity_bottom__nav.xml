@@ -9,8 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="?attr/actionBarSize">
+        android:layout_height="match_parent">
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
@@ -39,6 +38,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/header"
         app:itemTextColor="@color/black"
-        app:menu="@menu/drawer"></com.google.android.material.navigation.NavigationView>
+        app:menu="@menu/drawer"/>
 </androidx.drawerlayout.widget.DrawerLayout>
 
 

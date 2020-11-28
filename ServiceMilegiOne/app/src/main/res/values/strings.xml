@@ -7,8 +7,9 @@
     <string name="db">Dashboard</string>
     <string name="about">About Us</string>
     <string name="partner">Be a Partner</string>
-    <string name="edit">Check Details</string>
+    <string name="edit">Edit Profile</string>
     <string name="signout">Sign Out</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="quote">Service Milegi Everywhere</string>
 </resources>

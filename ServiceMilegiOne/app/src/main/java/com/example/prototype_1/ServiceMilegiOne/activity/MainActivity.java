@@ -1,11 +1,16 @@
 package com.example.prototype_1.ServiceMilegiOne.activity;
 
+import android.content.DialogInterface;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -16,6 +21,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -29,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mToggle;
     private NavigationView mNavigationView;
     private boolean doubleBackToExitPressedOnce = false;
+    private ImageView imageView;
 
 
     @Override
@@ -137,16 +144,33 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void selectItemDrawer(MenuItem item) {
+
         switch (item.getItemId()) {
             case R.id.SignOut:
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                finish();
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage("Are you sure that you want to Sign Out ?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                FirebaseAuth.getInstance().signOut();
+                                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                                finish();
+                            }
+                        }).setNegativeButton("No", null);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
                 break;
             case R.id.edit:
                 startActivity(new Intent(MainActivity.this, Update.class));
                 break;
+            case R.id.about:
+                startActivity(new Intent(MainActivity.this, AboutActivity.class));
+                break;
+            case R.id.partner:
+                startActivity(new Intent(MainActivity.this, PartnerActivity.class));
+                break;
         }
+        mDrawerLayout.closeDrawer(GravityCompat.START);
     }
 }
 
