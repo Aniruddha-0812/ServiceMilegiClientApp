@@ -29,4 +29,6 @@ Service Miliegi App is a concept app which allows users to book any type of serv
    * Intent
    * User-Permissions
    * Layout Design (XML)
+   * Dialog Box
+   * Toast Messages
    
