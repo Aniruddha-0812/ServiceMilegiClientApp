@@ -8,9 +8,13 @@ Service Miliegi App is a concept app which allows users to book any type of serv
 ### App Features 
 
    * App uses mobile phone authentication method as a way to login into the app.
+   <img src="images/login.png" width = 250 height = 500> | <img src="images/otp.png" width = 250 height = 500>
    * Users are required to enter their details the first time they sign in into the app and simultaneously app can perform CRUD operation on user data.
+   <img src="images/update.jpeg" width = 250 height = 500> | <img src="images/side.png" width = 250 height = 500>
    * Depending on the need of user he can book a service from app while booking app asks for confirmation and the service is booked which is showcased in bookings.  
+   <img src="images/plumber.png" width = 250 height = 500> | <img src="images/painter.png" width = 250 height = 500> | <img src="images/furniture.png" width = 250 height = 500> | <img src="images/electrician.png" width = 250 height = 500>
    * Till the client or the service provider doesn’t confirm the bookings from the client app the user can still cancel the booking via the cancel button from bookings        fragment. Once confirmed from the client’s side, bookings can’t be canceled.
+   <img src="images/main.png" width = 250 height = 500> | <img src="images/notification.png" width = 250 height = 500>
 
       
 ### Dependencies Used
