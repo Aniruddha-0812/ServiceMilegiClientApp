@@ -13,3 +13,20 @@ Service Miliegi App is a concept app which allows users to book any type of serv
    * Till the client or the service provider doesn’t confirm the bookings from the client app the user can still cancel the booking via the cancel button from bookings        fragment. Once confirmed from the client’s side, bookings can’t be canceled.
 
       
+### Dependencies Used
+   * Firebase Auth – used for mobile based authentication service.
+   * Firebase Firestore –  database which is used to store and perform operations on all of the users data like personal details , orders etc.
+
+### Concepts Covered
+   * Fragments
+   * Navigation Drawers
+   * Firebase Auth and Firestore for android
+   * DAO
+   * ViewPager
+   * RecycleView
+   * Firestore Recycle Adapter
+   * No Sql Database design
+   * Intent
+   * User-Permissions
+   * Layout Design (XML)
+   
