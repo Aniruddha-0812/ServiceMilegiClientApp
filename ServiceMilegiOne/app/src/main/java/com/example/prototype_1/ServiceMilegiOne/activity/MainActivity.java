@@ -1,6 +1,9 @@
 package com.example.prototype_1.ServiceMilegiOne.activity;
 
+import android.app.ActionBar;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;

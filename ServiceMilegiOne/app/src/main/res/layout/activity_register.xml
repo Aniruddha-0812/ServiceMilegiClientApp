@@ -17,7 +17,7 @@
         android:text="Get Started"
         android:textSize="30sp"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_light" />
+        android:textColor="@color/red" />
 
 
 
@@ -25,6 +25,9 @@
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="@color/red"
+        android:background="@drawable/round_border"
         android:hint="First Name"
         android:id="@+id/reg_first_name" />
 
@@ -35,6 +38,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Last Name"
+        android:textColor="@color/red"
+        android:padding="10dp"
+        android:background="@drawable/round_border"
         android:id="@+id/reg_last_name" />
 
 
@@ -43,6 +49,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Mobile Number"
+        android:padding="10dp"
+        android:textColor="@color/red"
+        android:background="@drawable/round_border"
         android:id="@+id/reg_mob"
         android:inputType="phone" />
 
@@ -51,15 +60,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email(optional)"
+        android:padding="10dp"
+        android:textColor="@color/red"
+        android:background="@drawable/round_border"
         android:id="@+id/reg_email"
         android:inputType="textEmailAddress" />
 
 
     <Button
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="GO"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+        android:background="@drawable/round_border"
         android:textSize="18sp"
         android:id="@+id/reg_register" />
 
