@@ -1,12 +1,8 @@
 # Service Milegi Client App
-Simple concept app made for providing day-to-day services. 
+Simple concept app made for providing day-to-day services such as : Electricians, Plumber , Carpenters etc. . 
 
 ### Contributer
 Roshan Wazare <https://github.com/Rosh008>
-
-### About
-
-Service Miliegi App is a concept app which allows users to book any type of service which they would require in their day to day life, e.g.: Electricians, Plumber , Carpenters etc. 
 
 <img src="images/login.png" width = 250 height = 500> | <img src="images/otp.png" width = 250 height = 500> | <img src="images/update.jpeg" width = 250 height = 500> | <img src="images/side.png" width = 250 height = 500> |<img src="images/main.png" width = 250 height = 500> | <img src="images/notification.png" width = 250 height = 500> | <img src="images/plumber.png" width = 250 height = 500> | <img src="images/painter.png" width = 250 height = 500> | <img src="images/furniture.png" width = 250 height = 500> | <img src="images/electrician.png" width = 250 height = 500>
 ### App Features 
