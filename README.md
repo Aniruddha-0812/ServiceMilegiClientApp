@@ -1,6 +1,7 @@
-# Service Milegi App
+# Service Milegi Client App
+Simple concept app made for providing day-to-day services. 
 
-### Contributers
+### Contributer
 Roshan Wazare <https://github.com/Rosh008>
 
 ### About
