@@ -1,7 +1,7 @@
 # Service Milegi App
 
 ### Contributers
-Roshan Wazare<https://github.com/Rosh008>
+Roshan Wazare <https://github.com/Rosh008>
 
 ### About
 
