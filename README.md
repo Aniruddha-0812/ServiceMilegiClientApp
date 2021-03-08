@@ -1,5 +1,5 @@
 # Service Milegi Client App
-Simple concept app made for providing day-to-day services such as : Electricians, Plumber , Carpenters etc. . 
+Simple concept app made for providing day-to-day services such as : Electricians, Plumber , Carpenters etc.  
 
 
 ### Contributor
